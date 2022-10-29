@@ -1,4 +1,0 @@
-# react-challenge
-React challenge
-
-

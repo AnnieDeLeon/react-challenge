@@ -1,0 +1,44 @@
+.post {
+    box-shadow: var(--element-box-shadow);
+    background-color: var(--sidebar-background-hover);
+    display: flex;
+    column-gap: 0.5rem;
+    border-radius: 0.25rem;
+    padding: 1.25rem;
+    &__image {
+      height: 2rem;
+      width: 2rem;
+      border-radius: 9999px;
+    }
+    &__user {
+      font-size: 0.875rem;
+      &__time {
+        font-size: 0.75rem;
+        color: var(--text-light);
+      }
+    }
+    &__title {
+      font-size: 1.875rem;
+      font-weight: 600;
+    }
+    &__tags {
+      display: flex;
+      column-gap: 1rem;
+      color: var(--text-light);
+      font-size: 0.875rem;
+    }
+    &__interactions {
+      display: flex;
+      margin-top: 1.25rem;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      & button {
+        color: var(--text-light);
+        background-color: transparent;
+        border: none;
+      }
+      &__reading {
+        font-size: 0.75rem;
+      }
+    }
+  }
