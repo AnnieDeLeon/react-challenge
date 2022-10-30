@@ -4,7 +4,7 @@ import { Feed } from "./components/Feed";
 import { Navbar } from "./components/Navbar";
 import { AsideLeft } from "./components/AsideLeft";
 import { AsideRight } from "./components/AsideRight";
-
+import { Footer } from "./components/Footer";
 import "./App.scss";
 
 const LoginPage = () => {
@@ -34,7 +34,7 @@ const DefaultLayout = (props) => {
     <Fragment>
       <Navbar />
       {props.children}
-      <footer>Esto es un footer</footer>
+      <Footer />
     </Fragment>
   );
 };
