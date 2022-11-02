@@ -12,35 +12,6 @@
 
 }
 
-.navbars {
-  color: var(--text);
-}
-
-.navbar {
-  margin-top: 1rem;
-  &__title {
-    padding: var(--link-title-padding);
-    color: var(--black);
-    font-weight: 600;
-  }
-
-  &__list-item {
-    border-radius: 0.35rem;
-    cursor: pointer;
-    &:hover {
-      color: var(--text-blue);
-      text-decoration: underline;
-      background-color: var(--navbar-background-hover);
-    }
-  }
-  &__navigation-item {
-    padding: var(--link-padding);
-    display: flex;
-    align-items: center;
-    column-gap: 0.5rem;
-  }
-}
-
 .feed {
   display: flex;
   flex-direction: column;
