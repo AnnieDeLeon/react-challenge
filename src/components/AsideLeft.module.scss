@@ -1,5 +1,9 @@
 .navbars {
     color: var(--text);
+    display: none;
+    @media screen and (min-width: 768px){
+      display: block;
+    }
   }
   
   .navbar {
@@ -7,7 +11,7 @@
     &__title {
       padding: var(--link-title-padding);
       color: var(--black);
-      font-weight: 600;
+      font-weight: 700;
     }
   
     &__list-item {
@@ -34,4 +38,7 @@
     border-radius: 25%;
     fill: rgba(47, 58, 178, 1);
     background: #3b49df1A;   
+}
+.my-tags{
+  display: none;
 }

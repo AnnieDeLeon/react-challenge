@@ -1,5 +1,25 @@
 import React from "react";
 import { ReactComponent as HomeIcon } from "../assets/home.svg";
+import { ReactComponent as ReadingList } from "../assets/reading-list.svg";
+import { ReactComponent as Listings } from "../assets/listings.svg";
+import { ReactComponent as Podcast } from "../assets/podcasts.svg";
+import { ReactComponent as Videos } from "../assets/videos.svg";
+import { ReactComponent as Tags } from "../assets/tags.svg";
+import { ReactComponent as FAQ } from "../assets/faq.svg";
+import { ReactComponent as ForemShop } from "../assets/forem-shop.svg";
+import { ReactComponent as Sponsors } from "../assets/sponsors.svg";
+import { ReactComponent as About } from "../assets/about.svg";
+import { ReactComponent as Contact } from "../assets/contact.svg";
+import { ReactComponent as Guides } from "../assets/guides.svg";
+import { ReactComponent as SoftwareComparisons } from "../assets/software-comparisons.svg";
+import { ReactComponent as CodeOfConduct } from "../assets/code-of-conduct.svg";
+import { ReactComponent as PrivacyPolicy } from "../assets/privacy-policy.svg";
+import { ReactComponent as TermsOfUse } from "../assets/terms-of-use.svg";
+import { ReactComponent as Twitter } from "../assets/twitter.svg";
+import { ReactComponent as Facebook } from "../assets/facebook.svg";
+import { ReactComponent as GitHub } from "../assets/github.svg";
+import { ReactComponent as Instagram } from "../assets/instagram.svg";
+import { ReactComponent as Twitch } from "../assets/twitch.svg";
 import styles from "./AsideLeft.module.scss";
 export const AsideLeft = () => {
   return (
@@ -14,73 +34,73 @@ export const AsideLeft = () => {
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <ReadingList />
               Reading List
             </div>
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <Listings />
               Listings
             </div>
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <Podcast />
               Podcasts
             </div>
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <Videos />
               Videos
             </div>
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <Tags />
               Tags
             </div>
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <FAQ />
               FAQ
             </div>
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <ForemShop />
               Forem Shop
             </div>
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <Sponsors />
               Sponsors
             </div>
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <About />
               About
             </div>
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <Contact />
               Contact
             </div>
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <Guides />
               Guides
             </div>
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <SoftwareComparisons />
               Software comparisons
             </div>
           </li>
@@ -91,47 +111,49 @@ export const AsideLeft = () => {
         <ul className={styles["navbar__list"]}>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <CodeOfConduct />
               Code of Conduct
             </div>
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <PrivacyPolicy />
               Privacy Policy
             </div>
           </li>
           <li className={styles["navbar__list-item"]}>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon />
+              <TermsOfUse />
               Terms of use
             </div>
           </li>
           <li>
             <div className={styles["navbar__navigation-item"]}>
-              <HomeIcon className={styles["fill-social-media"]} />
-              <HomeIcon className={styles["fill-social-media"]} />
-              <HomeIcon className={styles["fill-social-media"]} />
-              <HomeIcon className={styles["fill-social-media"]} />
-              <HomeIcon className={styles["fill-social-media"]} />
+              <Twitter className={styles["fill-social-media"]} />
+              <Facebook className={styles["fill-social-media"]} />
+              <GitHub className={styles["fill-social-media"]} />
+              <Instagram className={styles["fill-social-media"]} />
+              <Twitch className={styles["fill-social-media"]} />
             </div>
           </li>
         </ul>
       </nav>
-      <nav className={styles["navbar"]}>
-        <p className={styles["navbar__title"]}>My Tags</p>
-        <ul className={styles["navbar__list"]}>
-          <li className={styles["navbar__list-item"]}>
-            <div className={styles["navbar__navigation-item"]}>#webdev</div>
-          </li>
-          <li className={styles["navbar__list-item"]}>
-            <div className={styles["navbar__navigation-item"]}>#webdev</div>
-          </li>
-          <li className={styles["navbar__list-item"]}>
-            <div className={styles["navbar__navigation-item"]}>#webdev</div>
-          </li>
-        </ul>
-      </nav>
+      <section className={styles["my-tags"]}>
+        <nav className={styles["navbar"]}>
+          <p className={styles["navbar__title"]}>My Tags</p>
+          <ul className={styles["navbar__list"]}>
+            <li className={styles["navbar__list-item"]}>
+              <div className={styles["navbar__navigation-item"]}>#webdev</div>
+            </li>
+            <li className={styles["navbar__list-item"]}>
+              <div className={styles["navbar__navigation-item"]}>#webdev</div>
+            </li>
+            <li className={styles["navbar__list-item"]}>
+              <div className={styles["navbar__navigation-item"]}>#webdev</div>
+            </li>
+          </ul>
+        </nav>
+      </section>
     </aside>
   );
 };
