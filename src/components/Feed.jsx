@@ -5,18 +5,27 @@ import styles from "./Feed.module.scss";
 export const Feed = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
+    fetch("http://localhost:8080/posts", {
+      method: "GET",
+    })
       .then((response) => response.json())
-      .then((json) => {
-        setPosts(json);
+      .then((response) => {
+        setPosts(response.data.posts);
       });
   }, []);
   return (
     <ul className={styles.feed}>
-      {posts.slice(0, 5).map((post) => {
+      {posts.map((post) => {
         return (
           <li>
-            <Post author={post.userId} title={post.title} />
+            <Post
+              author={post.author}
+              title={post.title}
+              date={post.date}
+              tags={post.tags}
+              likes={post.likes}
+              reading={post.reading}
+            />
           </li>
         );
       })}

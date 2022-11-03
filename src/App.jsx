@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
+import { Feed } from "./components/Feed";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.scss";
 

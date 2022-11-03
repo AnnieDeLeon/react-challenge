@@ -3,6 +3,10 @@ import profilePicture from "../assets/pp.webp";
 import styles from "./Post.module.scss";
 
 export const Post = (props) => {
+  console.log(props.author);
+  const tags = props.tags.split(" ");
+  const date = new Date(props.date).toDateString();
+
   return (
     <article className={styles.post}>
       <img
@@ -12,22 +16,24 @@ export const Post = (props) => {
       />
       <section>
         <section className={styles.post__user}>
-          <p>{props.author}</p>
-          <p className={styles.post__user__time}>Oct 24 (18 hours ago)</p>
+          <p>
+            {props.author.name} {props.author.lastName}
+          </p>
+          <p className={styles.post__user__time}>{date}</p>
         </section>
         <h3 className={styles.post__title}>{props.title}</h3>
         <section className={styles.post__tags}>
-          <div>#javascript</div>
-          <div>#webdev</div>
-          <div>#beginners</div>
+          <div>#{tags[0]}</div>
+          <div>#{tags[1]}</div>
+          <div>#{tags[2]}</div>
         </section>
         <section className={styles.post__interactions}>
           <section>
-            <button>153 Reactions</button>
-            <button>2 Comments</button>
+            <button>{props.likes} likes</button>
+            <button>Comments</button>
           </section>
           <button className={styles.post__interactions__reading}>
-            19 min read
+            {props.reading}
           </button>
         </section>
       </section>
