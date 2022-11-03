@@ -11,6 +11,25 @@
       display: none;
     }
   }
+
+  .mobile-navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: rgba(0,0,0,0.25);
+      &__button {
+        background-color: white;
+        height: 100%;
+        width: 80%;
+      }
+      &__display {
+        display: flex;
+        justify-content: space-around;
+  }
+}
+
   .desktop-navbar {
     display: flex;
     max-width: var(--lg-max-width);
@@ -19,6 +38,7 @@
     &__left {
       display: flex;
       margin-left: 0.75rem;
+      
       &__image {
         width: 3.125rem;
         height: 2.5rem;
@@ -51,8 +71,7 @@
     &__actions {
       display: flex;
       align-items: center;
-      margin-left: 0.5rem;
-
+        margin-left: 0.5rem;
       & button:not(&__create-post) {
         background-color: transparent;
         border: none;
