@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Post } from "./Post";
+import styles from "./Feed.module.scss";
 
 export const Feed = () => {
   const [posts, setPosts] = useState([]);
@@ -11,8 +12,8 @@ export const Feed = () => {
       });
   }, []);
   return (
-    <ul className="feed">
-      {posts.slice(0, 2).map((post) => {
+    <ul className={styles.feed}>
+      {posts.slice(0, 5).map((post) => {
         return (
           <li>
             <Post author={post.userId} title={post.title} />
