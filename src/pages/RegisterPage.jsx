@@ -10,7 +10,6 @@ export const RegisterPage = (props) => {
       <p>
         Ya tienes cuenta, <Link to="/login">inicia sesión</Link>
       </p>
-      <Footer />
     </DefaultLayout>
   );
 };

@@ -129,11 +129,23 @@ export const AsideLeft = () => {
           </li>
           <li>
             <div className={styles["navbar__navigation-item"]}>
-              <Twitter className={styles["fill-social-media"]} />
-              <Facebook className={styles["fill-social-media"]} />
-              <GitHub className={styles["fill-social-media"]} />
-              <Instagram className={styles["fill-social-media"]} />
-              <Twitch className={styles["fill-social-media"]} />
+              <ul className={styles["social-media"]}>
+                <li>
+                  <Twitter className={styles["fill-social-media"]} />
+                </li>
+                <li>
+                  <Facebook className={styles["fill-social-media"]} />
+                </li>
+                <li>
+                  <GitHub className={styles["fill-social-media"]} />
+                </li>
+                <li>
+                  <Instagram className={styles["fill-social-media"]} />
+                </li>
+                <li>
+                  <Twitch className={styles["fill-social-media"]} />
+                </li>
+              </ul>
             </div>
           </li>
         </ul>

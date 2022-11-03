@@ -1,9 +1,5 @@
 .navbars {
     color: var(--text);
-    display: none;
-    @media screen and (min-width: 768px){
-      display: block;
-    }
   }
   
   .navbar {
@@ -30,14 +26,18 @@
       column-gap: 0.5rem;
     }
   }
-
+.social-media{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
   .fill-social-media:hover {
     width: 30px;
     height: 30px;
     border-color: rgba(47, 58, 178, 1);
     border-radius: 25%;
     fill: rgba(47, 58, 178, 1);
-    background: #3b49df1A;   
+    background: #3b49df1A;
 }
 .my-tags{
   display: none;

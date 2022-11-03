@@ -8,15 +8,14 @@ export const HomePage = (props) => {
   return (
     <DefaultLayout token={props.token}>
       <section className="layout">
-        <div>
+        <div className="aside-left__nav">
           <AsideLeft />
         </div>
-        <main>
+        <main className="post-main">
           <Feed />
         </main>
         <AsideRight />
       </section>
-      <Footer />
     </DefaultLayout>
   );
 };

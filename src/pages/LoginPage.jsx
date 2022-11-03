@@ -40,7 +40,6 @@ export const LoginPage = (props) => {
       <p>
         No tienes cuenta, <Link to="/register">¡regístrate!</Link>
       </p>
-      <Footer />
     </DefaultLayout>
   );
 };
