@@ -3,7 +3,6 @@ import profilePicture from "../assets/pp.webp";
 import styles from "./Post.module.scss";
 
 export const Post = (props) => {
-  console.log(props.author);
   const tags = props.tags.split(" ");
   const date = new Date(props.date).toDateString();
 
