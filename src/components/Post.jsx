@@ -1,9 +1,10 @@
 import React from "react";
 import profilePicture from "../assets/pp.webp";
 import styles from "./Post.module.scss";
+import { Link } from "react-router-dom";
 
 export const Post = (props) => {
-  console.log(props.author);
+  // console.log(props.author);
   const tags = props.tags.split(" ");
   const date = new Date(props.date).toDateString();
 
@@ -17,11 +18,14 @@ export const Post = (props) => {
       <section>
         <section className={styles.post__user}>
           <p>
-            {props.author.name} {props.author.lastName}
+            {props.author.name}
+            {props.author.lastName}
           </p>
           <p className={styles.post__user__time}>{date}</p>
         </section>
-        <h3 className={styles.post__title}>{props.title}</h3>
+        <h3 className={styles.post__title}>
+          <Link to="/postview">{props.title}</Link>
+        </h3>
         <section className={styles.post__tags}>
           <div>#{tags[0]}</div>
           <div>#{tags[1]}</div>

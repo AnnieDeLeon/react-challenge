@@ -1,12 +1,14 @@
 import React from "react";
+import profilePicture from "../assets/pp.webp";
 import styles from "./PostViewPage.module.scss";
+import { DefaultLayout } from "../layouts/DefaultLayout";
 
 export const PostViewPage = (props) => {
-  const tags = props.tags.split(" ");
-  const date = new Date(props.date).toDateString();
-
+  // const tags = props.tags.split(" ");
+  // const date = new Date(props.date).toDateString();
+  console.log(props);
   return (
-    <>
+    <DefaultLayout>
       <img
         className={styles["img img__initial"]}
         src={props.headerImg}
@@ -25,23 +27,23 @@ export const PostViewPage = (props) => {
                 {props.username}
               </a>
               <br />
-              <small className={styles["text-muted"]}>{date}</small>
+              {/* <small className={styles["text-muted"]}>{date}</small> */}
             </p>
           </div>
         </div>
         <h1>{props.title}</h1>
         <a className={styles["hashtag-hover--gray ms-2"]} href="">
           <span className={styles["hashtag--gray"]}>#</span>
-          {tags[0]}
+          {/* {tags[0]} */}
         </a>
         <a className={styles["hashtag-hover--green ms-2"]} href="">
           <span className={styles["hashtag--green"]}>#</span>
-          {tags[1]}
+          {/* {tags[1]} */}
         </a>
         <a className={styles["hashtag-hover--yellow ms-2"]} href="">
           {" "}
           <span className={styles["hashtag--yellow"]}>#</span>
-          {tags[2]}
+          {/* {tags[2]} */}
         </a>
         <p>{props.description}</p>
         <img
@@ -50,6 +52,6 @@ export const PostViewPage = (props) => {
           alt=""
         />
       </section>
-    </>
+    </DefaultLayout>
   );
 };

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Post } from "./PostViewPage";
+import { PostViewPage } from "./PostViewPage.module.scss";
 import styles from "./Feed.module.scss";
 
-export const Feed = () => {
+export const Feed = (props) => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8080/posts", {
+    fetch("http://localhost:8080/posts/6349f79293dc64bb308dca0b", {
       method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
       .then((response) => response.json())
       .then((response) => {
@@ -18,7 +21,7 @@ export const Feed = () => {
       {posts.map((post) => {
         return (
           <li>
-            <Post
+            <PostViewPage
               author={post.author}
               title={post.title}
               date={post.date}
@@ -29,6 +32,7 @@ export const Feed = () => {
           </li>
         );
       })}
+      ∫
     </ul>
   );
 };
