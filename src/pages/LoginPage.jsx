@@ -11,16 +11,13 @@ export const LoginPage = (props) => {
     const email = formData.get("email");
     const password = formData.get("password");
 
-    fetch("http://localhost:3000/login", {
+    fetch("http://localhost:8080/auth/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
     })
       .then((res) => res.json())
       .then((successResponse) => {
-        // {login: true, token: 'skajfalksjñfla'}
-        // 'jjfñalsjkfaslkjlj'
-        // setToken(successResponse.token)
-        props.setToken(successResponse);
+        props.setToken(successResponse.token);
       })
       .catch((err) => {
         setLoginError(true);
@@ -36,9 +33,9 @@ export const LoginPage = (props) => {
         <input name="password" type="password" />
         <input type="submit" value="Login" />
       </form>
-      <p>
+      {/* <p>
         No tienes cuenta, <Link to="/register">¡regístrate!</Link>
-      </p>
+      </p> */}
     </DefaultLayout>
   );
 };

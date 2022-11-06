@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
+import { PostViewPage } from "./pages/PostViewPage";
 import { Feed } from "./components/Feed";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.scss";
@@ -17,6 +18,7 @@ function App() {
           element={<LoginPage token={token} setToken={setToken} />}
         />
         <Route path="/register" element={<RegisterPage token={token} />} />
+        <Route path="/postview" element={<PostViewPage token={token} />} />
       </Routes>
     </BrowserRouter>
   );
