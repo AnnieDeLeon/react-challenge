@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { DefaultLayout } from "../layouts/DefaultLayout";
+import styles from "./LoginPage.module.scss";
 
 export const LoginPage = (props) => {
   const [loginError, setLoginError] = useState(false);
@@ -20,12 +21,12 @@ export const LoginPage = (props) => {
     })
       .then((res) => res.json())
       .then((successResponse) => {
-        props.setToken(successResponse);
-        setLogin(true);
-      })
-      .catch((err) => {
-        setLoginError(true);
+        if (successResponse.success) {
+          props.setToken(successResponse);
+          setLogin(successResponse);
+        }
       });
+    setLoginError(" ");
   };
   if (login) {
     return <Navigate to="/" />;
@@ -33,11 +34,26 @@ export const LoginPage = (props) => {
   return (
     <DefaultLayout token={props.token}>
       <h1>LoginPage</h1>
-      {loginError && <h2>Hubo un error</h2>}
-      <form onSubmit={(event) => submitLogin(event)}>
-        <input name="email" type="email" />
-        <input name="password" type="password" />
-        <input type="submit" value="Login" />
+      {loginError && <h2>Credenciales Invalidas</h2>}
+      <form
+        className={styles["form-login"]}
+        onSubmit={(event) => submitLogin(event)}
+      >
+        <input
+          className={styles["form-login__email"]}
+          name="email"
+          type="email"
+        />
+        <input
+          className={styles["form-login__password"]}
+          name="password"
+          type="password"
+        />
+        <input
+          className={styles["button-login__login"]}
+          type="submit"
+          value="Login"
+        />
       </form>
       <p>
         No tienes cuenta, <Link to="/register">¡regístrate!</Link>
