@@ -33,7 +33,7 @@ export const LoginPage = (props) => {
   }
   return (
     <DefaultLayout token={props.token}>
-      <h1>LoginPage</h1>
+      <h1 className={styles["login--title"]}>LoginPage</h1>
       {loginError && <h2>Credenciales Invalidas</h2>}
       <form
         className={styles["form-login"]}
@@ -50,12 +50,12 @@ export const LoginPage = (props) => {
           type="password"
         />
         <input
-          className={styles["button-login__login"]}
+          className={styles["form-login__button"]}
           type="submit"
           value="Login"
         />
       </form>
-      <p>
+      <p className={styles["form-login__registro"]}>
         No tienes cuenta, <Link to="/register">¡regístrate!</Link>
       </p>
     </DefaultLayout>
