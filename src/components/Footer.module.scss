@@ -1,8 +1,11 @@
 footer {
   background-color: hsl(0, 0%, 90%);
   padding: 30px;
-  position: relative;
-  bottom: 0;
+  display: grid;
+  grid-row:    footer;
+  grid-column: footer;
+  grid-column-start: footer-start;
+
   .container-fluid{
     width: 100%;
   }

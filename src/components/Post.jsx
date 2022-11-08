@@ -4,7 +4,6 @@ import styles from "./Post.module.scss";
 import { Link } from "react-router-dom";
 
 export const Post = (props) => {
-  // console.log(props.author);
   const tags = props.tags.split(" ");
   const date = new Date(props.date).toDateString();
 
