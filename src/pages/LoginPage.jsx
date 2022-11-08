@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { DefaultLayout } from "../layouts/DefaultLayout";
-import styles from "./LoginPage.module.scss";
+//import styles from "./LoginPage.module.scss";
 
 export const LoginPage = (props) => {
   const [loginError, setLoginError] = useState(false);

@@ -2,10 +2,9 @@ import React, { Fragment, useState } from "react";
 import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
-import { PostViewPage } from "./pages/PostViewPage";
 import { Feed } from "./components/Feed";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { NewPost } from "./pages/NewPost";
+import { NewPostPage } from "./pages/NewPostPage";
 import "./App.scss";
 
 function App() {
@@ -14,12 +13,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage token={token} />} />
-        <Route
-          path="/login"
-          element={<LoginPage token={token} setToken={setToken} />}
-        />
+        <Route path="/login"element={<LoginPage token={token} setToken={setToken} />}/>
         <Route path="/register" element={<RegisterPage token={token} />} />
-        <Route path="/postview" element={<PostViewPage token={token} />} />
+        {/* <Route path="/postview" element={<PostViewPage token={token} />} /> */}
+        <Route path="/newpostpage" element={<NewPostPage token={token} />} />
       </Routes>
     </BrowserRouter>
   );

@@ -30,7 +30,7 @@
     }
     &__content{
         border: none;
-        width: 90vw;
+        width: 40vw;
         background-color: transparent;
         font-size: large;
         font-family: 'Courier New', Courier, monospace;
@@ -45,7 +45,7 @@
     padding: 8px;
     background-color: #F4F5F4;
     display: flex;
-    border-top: solid;
+    
     border-width: 1px;
     border-color: rgb(206, 206, 206);
     flex-direction: row;
@@ -54,7 +54,8 @@
     gap: 20px;
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 80vw;
+
 
 
     &__publish{
