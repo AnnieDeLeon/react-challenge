@@ -1,6 +1,7 @@
 import React from "react";
 import profilePicture from "../assets/pp.webp";
 import styles from "./Post.module.scss";
+import { Link } from "react-router-dom";
 
 export const Post = (props) => {
   const tags = props.tags.split(" ");

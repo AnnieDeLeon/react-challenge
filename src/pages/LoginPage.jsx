@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { DefaultLayout } from "../layouts/DefaultLayout";
-//import styles from "./LoginPage.module.scss";
+import styles from "./LoginPage.module.scss";
 
 export const LoginPage = (props) => {
   const [loginError, setLoginError] = useState(false);
@@ -12,7 +12,6 @@ export const LoginPage = (props) => {
     const formData = new FormData(e.target);
     const email = formData.get("email");
     const password = formData.get("password");
-
     fetch("http://localhost:8080/auth/login", {
       method: "POST",
       headers: {
@@ -22,12 +21,11 @@ export const LoginPage = (props) => {
     })
       .then((res) => res.json())
       .then((successResponse) => {
-        // {login: true, token: 'skajfalksjñfla'}
-        // 'jjfñalsjkfaslkjlj'
-        // setToken(successResponse.token)
         if (successResponse.success) {
           props.setToken(successResponse);
           setLogin(successResponse);
+        } else {
+          setLoginError(" ");
         }
       });
     setLoginError(" ");
@@ -38,7 +36,9 @@ export const LoginPage = (props) => {
   return (
     <DefaultLayout token={props.token}>
       <h1 className={styles["login--title"]}>LoginPage</h1>
-      {loginError && <h2>Credenciales Invalidas</h2>}
+      {loginError && (
+        <h2 className={styles["login--title"]}>Credenciales Invalidas</h2>
+      )}
       <form
         className={styles["form-login"]}
         onSubmit={(event) => submitLogin(event)}
@@ -59,7 +59,7 @@ export const LoginPage = (props) => {
           value="Login"
         />
       </form>
-      <p className={styles["form-login__registro"]}>
+      <p className={styles["form-login__register"]}>
         No tienes cuenta, <Link to="/register">¡regístrate!</Link>
       </p>
     </DefaultLayout>

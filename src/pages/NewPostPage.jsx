@@ -3,8 +3,10 @@ import "./NewPost.scss";
 
 export const NewPostPage = (props) => {
 
-  return (
-<div className="container">
+
+    
+return (
+    <div className="container">
         <section className="subcontainer">
             <section className="createPost__content">
                 <button className="createPost__content__imageButton">Add a cover image</button>
@@ -23,4 +25,4 @@ export const NewPostPage = (props) => {
         </section>
     </div>
   );
-};
+}
