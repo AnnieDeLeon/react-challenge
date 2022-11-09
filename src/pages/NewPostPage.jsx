@@ -1,11 +1,12 @@
 import React from "react";
 import "./NewPost.scss";
-
+import { DefaultLayout } from "../layouts/DefaultLayout";
 export const NewPostPage = (props) => {
 
-
+   
     
 return (
+    <DefaultLayout>
     <div className="container">
         <section className="subcontainer">
             <section className="createPost__content">
@@ -24,5 +25,6 @@ return (
             </footer>
         </section>
     </div>
+    </DefaultLayout>
   );
 }
