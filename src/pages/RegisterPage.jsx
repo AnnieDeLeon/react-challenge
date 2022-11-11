@@ -92,7 +92,7 @@ export const RegisterPage = (props) => {
           type="password"
           placeholder="Enter your password"
         />
-        {/* <input name="myFile" type="file" /> */}
+        <input name="myFile" type="file" />
         <input
           className={styles["form-register__button"]}
           type="submit"

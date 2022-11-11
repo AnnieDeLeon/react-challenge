@@ -33,7 +33,7 @@ export const Post = (props) => {
             <button>Comments</button>
           </section>
           <button className={styles.post__interactions__reading}>
-            {props.reading}
+            {props.reading} min
           </button>
         </section>
       </section>
