@@ -19,21 +19,12 @@ export const Feed = () => {
         return (
           <li>
             <Post
-              // author={post.author}
-              // title={post.title}
-              // date={post.date}
-              // tags={post.tags}
-              // likes={post.likes}
-              // reading={post.reading}
+              author={post.author}
               title={post.title}
               date={post.date}
               tags={post.tags}
-              description={post.description}
-              headerImg={post.headerImg}
-              postImg={post.postImg}
               likes={post.likes}
               reading={post.reading}
-              author={post.author}
             />
           </li>
         );

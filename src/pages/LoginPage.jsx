@@ -24,9 +24,10 @@ export const LoginPage = (props) => {
         if (successResponse.success) {
           props.setToken(successResponse);
           setLogin(successResponse);
+        } else {
+          setLoginError(" ");
         }
       });
-    setLoginError(" ");
   };
   if (login) {
     return <Navigate to="/" />;
@@ -34,7 +35,9 @@ export const LoginPage = (props) => {
   return (
     <DefaultLayout token={props.token}>
       <h1 className={styles["login--title"]}>LoginPage</h1>
-      {loginError && <h2>Credenciales Invalidas</h2>}
+      {loginError && (
+        <h2 className={styles["login--title"]}>Credenciales Invalidas</h2>
+      )}
       <form
         className={styles["form-login"]}
         onSubmit={(event) => submitLogin(event)}
@@ -55,7 +58,7 @@ export const LoginPage = (props) => {
           value="Login"
         />
       </form>
-      <p className={styles["form-login__registro"]}>
+      <p className={styles["form-login__register"]}>
         No tienes cuenta, <Link to="/register">¡regístrate!</Link>
       </p>
     </DefaultLayout>
