@@ -11,18 +11,19 @@ import { DefaultLayout } from "../layouts/DefaultLayout";
 // import { useParams } from "react-router-dom";
 
 export const PostViewPage = (props) => {
-  // const [post, setPost] = useState([]);
-  const [title, setTitle] = useState([]);
+  const [posts, setPosts] = useState();
+  const [title, setTitle] = useState();
   const [date, setDate] = useState();
   const [tags, setTags] = useState();
   const [description, setDescription] = useState();
   const [headerImg, setHeaderImg] = useState();
   const [postImg, setPostImg] = useState();
-  // const [likes, setLikes] = useState();
-  const [author, setAuthor] = useState([]);
-
+  const [likes, setLikes] = useState();
+  const [authorName, setAuthorName] = useState();
+  const [authorLastName, setAuthor] = useState();
+  // const tagOne = tags.split(" ")[0];
   useEffect(() => {
-    fetch("http://localhost:8080/posts/6349f79293dc64bb308dca0b", {
+    fetch("http://localhost:8080/posts/636de7d3b7e3e0e707a1d735", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -30,19 +31,21 @@ export const PostViewPage = (props) => {
     })
       .then((response) => response.json())
       .then((response) => {
-        // setPost(response.data.posts);
-        setTitle(response.data.title);
-        setDate(response.data.date);
-        setTags(response.data.tags);
-        setDescription(response.data.description);
-        setHeaderImg(response.data.headerImg);
-        setPostImg(response.data.postImg);
-        // setLikes(response.data.likes);
-        setAuthor(response.data.author);
+        setPosts(response.data.posts);
+        setTitle(response.data.posts.title);
+        setDate(response.data.posts.date);
+        setTags(response.data.posts.tags);
+        setDescription(response.data.posts.description);
+        setHeaderImg(response.data.posts.headerImg);
+        setPostImg(response.data.posts.postImg);
+        setLikes(response.data.posts.likes);
+        setAuthorName(response.data.posts.author.name);
+        setAuthor(response.data.posts.author.lastName);
+        console.log(response.data.posts);
       });
   }, []);
   return (
-    <DefaultLayout>
+    <DefaultLayout token={props.token}>
       <section class="container">
         <div class="row">
           <aside class="aside__left--post col-12 col-md-1 p-0">
@@ -110,14 +113,14 @@ export const PostViewPage = (props) => {
             class={["main__post--view col-12 col-md-11 col-lg-8 p-0 p-md-0"]}
           >
             <article class="p-2" id="getPost-view">
-              <img class="img img__initial" src={headerImg} alt="" />
+              <img class="img img__initial" src="" alt="" />
               <section class="px-md-5">
                 <div class="d-flex mt-3">
                   <img src={profilePicture} alt="" class="user-img-postView" />
                   <div class="ms-2">
                     <p>
                       <a class="user__name--post" href=" ">
-                        {author}
+                        {authorName} {authorLastName}
                       </a>
                       <br />
                       <small class="text-muted">{date}</small>
@@ -127,21 +130,30 @@ export const PostViewPage = (props) => {
                 <h1>{title}</h1>
                 <a class="hashtag-hover--gray ms-2" href=" ">
                   <span class="hashtag--gray">#</span>
-                  {tags}
-                  {/*{tags[0 */}
+                  hola
                 </a>
                 <a class="hashtag-hover--green ms-2" href=" ">
                   <span class="hashtag--green">#</span>
-                  {tags}
-                  {/*{tags[1 */}
+                  tag
                 </a>
                 <a class="hashtag-hover--yellow ms-2" href=" ">
                   <span class="hashtag--yellow">#</span>
-                  {tags}
-                  {/*{tags[2 */}
+                  prueba
                 </a>
                 <p>{description}</p>
-                <img class="img img__initial" src={postImg} alt="" />
+                <img class="img img__initial" src="" alt="" />
+                <form onSubmit={(event) => submitRegister(event)}>
+                  <input
+                    className="form-register__button"
+                    type="submit"
+                    value="delete"
+                  />
+                  <input
+                    className="form-register__button"
+                    type="submit"
+                    value="update"
+                  />
+                </form>
               </section>
             </article>
             <section class="comments p-2 pt-3 mt-5">

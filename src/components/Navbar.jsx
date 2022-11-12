@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Navigate } from "react";
 import { AsideLeft } from "./AsideLeft";
 import styles from "./Navbar.module.scss";
 import { Link } from "react-router-dom";
@@ -55,7 +55,7 @@ export const Navbar = (props) => {
         <section className={styles["desktop-navbar__actions"]}>
           {props.token ? (
             <button className="desktop-navbar__actions__create-post">
-              Create Post
+              <Link to="/newpostpage">Create post</Link>
             </button>
           ) : (
             <Link to="/login">Login</Link>
