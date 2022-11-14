@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./NewPost.scss";
 import { DefaultLayout } from "../layouts/DefaultLayout";
+import { Navigate } from "react-router-dom";
 export const NewPostPage = (props) => {
+  const [login, setLogin] = useState(false);
   console.log(props.token);
 
   const createPost = (e) => {
@@ -10,12 +12,6 @@ export const NewPostPage = (props) => {
     const title = formData.get("title");
     const tags = formData.get("tags");
     const description = formData.get("description");
-
-    const newPost = {
-      title,
-      tags,
-      description,
-    };
 
     fetch("http://localhost:8080/posts", {
       method: "POST",
@@ -28,12 +24,17 @@ export const NewPostPage = (props) => {
         tags,
         description,
       }),
-    }).then((response) => response.json());
-    // .then((response) => {
-    //   console.log(response);
-    // });
+    })
+      .then((res) => res.json())
+      .then((successResponse) => {
+        if (successResponse.success) {
+          setLogin(successResponse);
+        }
+      });
   };
-
+  if (login) {
+    return <Navigate to="/" />;
+  }
   return (
     <DefaultLayout token={props.token}>
       <div className="container">

@@ -20,7 +20,6 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage token={token} />} />
         <Route path="/postview" element={<PostViewPage token={token} />} />
-        {/* <Route path="/postview" element={<PostViewPage token={token} />} /> */}
         <Route path="/newpostpage" element={<NewPostPage token={token} />} />
       </Routes>
     </BrowserRouter>

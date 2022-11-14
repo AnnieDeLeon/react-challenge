@@ -2,26 +2,22 @@ import React, { useEffect, useState } from "react";
 import "./PostViewPage.scss";
 import profilePicture from "../assets/pp.webp";
 import { DefaultLayout } from "../layouts/DefaultLayout";
-// import { Post } from "./Post";
-// import { Feed } from "./Feed";
-
-// React components here
 
 // userParams here
 // import { useParams } from "react-router-dom";
 
 export const PostViewPage = (props) => {
   const [posts, setPosts] = useState();
-  const [title, setTitle] = useState();
+  const [title, setTitle] = useState([]);
   const [date, setDate] = useState();
   const [tags, setTags] = useState();
   const [description, setDescription] = useState();
   const [headerImg, setHeaderImg] = useState();
   const [postImg, setPostImg] = useState();
   const [likes, setLikes] = useState();
-  const [authorName, setAuthorName] = useState();
-  const [authorLastName, setAuthor] = useState();
-  // const tagOne = tags.split(" ")[0];
+  const [author, setAuthor] = useState([]);
+  const [lastName, setLastName] = useState([]);
+  console.log(props);
   useEffect(() => {
     fetch("http://localhost:8080/posts/636de7d3b7e3e0e707a1d735", {
       method: "GET",
@@ -39,11 +35,11 @@ export const PostViewPage = (props) => {
         setHeaderImg(response.data.posts.headerImg);
         setPostImg(response.data.posts.postImg);
         setLikes(response.data.posts.likes);
-        setAuthorName(response.data.posts.author.name);
-        setAuthor(response.data.posts.author.lastName);
-        console.log(response.data.posts);
+        setAuthor(response.data.posts.author.name);
+        setLastName(response.data.posts.author.lastName);
       });
   }, []);
+
   return (
     <DefaultLayout token={props.token}>
       <section class="container">
@@ -120,7 +116,7 @@ export const PostViewPage = (props) => {
                   <div class="ms-2">
                     <p>
                       <a class="user__name--post" href=" ">
-                        {authorName} {authorLastName}
+                        {/* {props.author.name} {props.author.lastName} */}
                       </a>
                       <br />
                       <small class="text-muted">{date}</small>
@@ -130,15 +126,13 @@ export const PostViewPage = (props) => {
                 <h1>{title}</h1>
                 <a class="hashtag-hover--gray ms-2" href=" ">
                   <span class="hashtag--gray">#</span>
-                  hola
+                  {tags}
                 </a>
                 <a class="hashtag-hover--green ms-2" href=" ">
                   <span class="hashtag--green">#</span>
-                  tag
                 </a>
                 <a class="hashtag-hover--yellow ms-2" href=" ">
                   <span class="hashtag--yellow">#</span>
-                  prueba
                 </a>
                 <p>{description}</p>
                 <img class="img img__initial" src="" alt="" />

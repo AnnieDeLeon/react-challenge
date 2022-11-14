@@ -1,6 +1,6 @@
-import React, { useState, Navigate } from "react";
+import React, { useState } from "react";
 import { DefaultLayout } from "../layouts/DefaultLayout";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import styles from "./RegisterPage.module.scss";
 export const RegisterPage = (props) => {
   const [registerError, setRegisterError] = useState(false);
@@ -34,7 +34,7 @@ export const RegisterPage = (props) => {
       .then((res) => res.json())
       .then((successResponse) => {
         if (successResponse.success) {
-          setRegister(successResponse);
+          setRegister(successResponse.success);
         } else {
           setRegisterError(" ");
         }
