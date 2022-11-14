@@ -3,9 +3,9 @@
 // import styles from "./Feed.module.scss";
 
 // export const Feed = () => {
-//   const [posts, setPosts] = useState([]);
+//   const [posts, setPosts] = useState();
 //   useEffect(() => {
-//     fetch("http://localhost:8080/posts/6349f79293dc64bb308dca0b", {
+//     fetch("http://localhost:8080/posts/636de7d3b7e3e0e707a1d735", {
 //       method: "GET",
 //       headers: {
 //         "Content-Type": "application/json",
@@ -17,22 +17,14 @@
 //       });
 //   }, []);
 //   return (
-//     <ul className={styles.feed}>
-//       {posts.map((post) => {
-//         return (
-//           <li>
-//             <PostViewPage
-//               author={post.author}
-//               title={post.title}
-//               date={post.date}
-//               tags={post.tags}
-//               likes={post.likes}
-//               reading={post.reading}
-//             />
-//           </li>
-//         );
-//       })}
-//       ∫
-//     </ul>
+//     <PostViewPage
+//       id={posts._id}
+//       title={posts.title}
+//       author={posts.author}
+//       date={posts.date}
+//       tags={posts.tags}
+//       likes={posts.likes}
+//       reading={posts.reading}
+//     />
 //   );
 // };

@@ -2,27 +2,24 @@ import React, { useEffect, useState } from "react";
 import "./PostViewPage.scss";
 import profilePicture from "../assets/pp.webp";
 import { DefaultLayout } from "../layouts/DefaultLayout";
-// import { Post } from "./Post";
-// import { Feed } from "./Feed";
-
-// React components here
 
 // userParams here
 // import { useParams } from "react-router-dom";
 
 export const PostViewPage = (props) => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState();
   const [title, setTitle] = useState([]);
   const [date, setDate] = useState();
   const [tags, setTags] = useState();
   const [description, setDescription] = useState();
   const [headerImg, setHeaderImg] = useState();
   const [postImg, setPostImg] = useState();
-  // const [likes, setLikes] = useState();
+  const [likes, setLikes] = useState();
   const [author, setAuthor] = useState([]);
-
+  const [lastName, setLastName] = useState([]);
+  console.log(props);
   useEffect(() => {
-    fetch("http://localhost:8080/posts/6349f79293dc64bb308dca0b", {
+    fetch("http://localhost:8080/posts/636de7d3b7e3e0e707a1d735", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -31,18 +28,20 @@ export const PostViewPage = (props) => {
       .then((response) => response.json())
       .then((response) => {
         setPosts(response.data.posts);
-        setTitle(response.data.title);
-        setDate(response.data.date);
-        setTags(response.data.tags);
-        setDescription(response.data.description);
-        setHeaderImg(response.data.headerImg);
-        setPostImg(response.data.postImg);
-        // setLikes(response.data.likes);
-        setAuthor(response.data.author);
+        setTitle(response.data.posts.title);
+        setDate(response.data.posts.date);
+        setTags(response.data.posts.tags);
+        setDescription(response.data.posts.description);
+        setHeaderImg(response.data.posts.headerImg);
+        setPostImg(response.data.posts.postImg);
+        setLikes(response.data.posts.likes);
+        setAuthor(response.data.posts.author.name);
+        setLastName(response.data.posts.author.lastName);
       });
   }, []);
+
   return (
-    <DefaultLayout>
+    <DefaultLayout token={props.token}>
       <section class="container">
         <div class="row">
           <aside class="aside__left--post col-12 col-md-1 p-0">
@@ -108,14 +107,14 @@ export const PostViewPage = (props) => {
           </aside>
           <main class="main__post--view col-12 col-md-11 col-lg-8 p-0 p-md-0">
             <article class="p-2" id="getPost-view">
-              <img class="img img__initial" src={headerImg} alt="" />
+              <img class="img img__initial" src="" alt="" />
               <section class="px-md-5">
                 <div class="d-flex mt-3">
                   <img src={profilePicture} alt="" class="user-img-postView" />
                   <div class="ms-2">
                     <p>
                       <a class="user__name--post" href=" ">
-                        {posts.author}
+                        {/* {props.author.name} {props.author.lastName} */}
                       </a>
                       <br />
                       <small class="text-muted">{posts.date}</small>
@@ -125,21 +124,16 @@ export const PostViewPage = (props) => {
                 <h1>{posts.title}</h1>
                 <a class="hashtag-hover--gray ms-2" href=" ">
                   <span class="hashtag--gray">#</span>
-                  {posts.tags}
-                  {/*{tags[0 */}
+                  {tags}
                 </a>
                 <a class="hashtag-hover--green ms-2" href=" ">
                   <span class="hashtag--green">#</span>
-                  {posts.tags}
-                  {/*{tags[1 */}
                 </a>
                 <a class="hashtag-hover--yellow ms-2" href=" ">
                   <span class="hashtag--yellow">#</span>
-                  {posts.tags}
-                  {/*{tags[2 */}
                 </a>
                 <p>{description}</p>
-                <img class="img img__initial" src={postImg} alt="" />
+                <img class="img img__initial" src="" alt="" />
               </section>
             </article>
             <section class="comments p-2 pt-3 mt-5">

@@ -4,7 +4,6 @@ import styles from "./Post.module.scss";
 import { Link } from "react-router-dom";
 
 export const Post = (props) => {
-  const tags = props.tags.split(" ");
   const date = new Date(props.date).toDateString();
 
   return (
@@ -17,8 +16,7 @@ export const Post = (props) => {
       <section>
         <section className={styles.post__user}>
           <p>
-            {props.author.name}
-            {props.author.lastName}
+            {props.author.name} {props.author.lastName}
           </p>
           <p className={styles.post__user__time}>{date}</p>
         </section>
@@ -26,9 +24,9 @@ export const Post = (props) => {
           <Link to="/postview">{props.title}</Link>
         </h3>
         <section className={styles.post__tags}>
-          <div>#{tags[0]}</div>
-          <div>#{tags[1]}</div>
-          <div>#{tags[2]}</div>
+          <div>#{props.tags[0]}</div>
+          <div>#{props.tags[1]}</div>
+          <div>#{props.tags[2]}</div>
         </section>
         <section className={styles.post__interactions}>
           <section>
@@ -36,7 +34,7 @@ export const Post = (props) => {
             <button>Comments</button>
           </section>
           <button className={styles.post__interactions__reading}>
-            {props.reading}
+            {props.reading} min
           </button>
         </section>
       </section>
