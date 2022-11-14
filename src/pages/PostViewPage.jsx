@@ -11,7 +11,7 @@ import { DefaultLayout } from "../layouts/DefaultLayout";
 // import { useParams } from "react-router-dom";
 
 export const PostViewPage = (props) => {
-  // const [post, setPost] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [title, setTitle] = useState([]);
   const [date, setDate] = useState();
   const [tags, setTags] = useState();
@@ -30,7 +30,7 @@ export const PostViewPage = (props) => {
     })
       .then((response) => response.json())
       .then((response) => {
-        // setPost(response.data.posts);
+        setPosts(response.data.posts);
         setTitle(response.data.title);
         setDate(response.data.date);
         setTags(response.data.tags);
@@ -106,9 +106,7 @@ export const PostViewPage = (props) => {
               </ul>
             </section>
           </aside>
-          <main
-            class={["main__post--view col-12 col-md-11 col-lg-8 p-0 p-md-0"]}
-          >
+          <main class="main__post--view col-12 col-md-11 col-lg-8 p-0 p-md-0">
             <article class="p-2" id="getPost-view">
               <img class="img img__initial" src={headerImg} alt="" />
               <section class="px-md-5">
@@ -117,27 +115,27 @@ export const PostViewPage = (props) => {
                   <div class="ms-2">
                     <p>
                       <a class="user__name--post" href=" ">
-                        {author}
+                        {posts.author}
                       </a>
                       <br />
-                      <small class="text-muted">{date}</small>
+                      <small class="text-muted">{posts.date}</small>
                     </p>
                   </div>
                 </div>
-                <h1>{title}</h1>
+                <h1>{posts.title}</h1>
                 <a class="hashtag-hover--gray ms-2" href=" ">
                   <span class="hashtag--gray">#</span>
-                  {tags}
+                  {posts.tags}
                   {/*{tags[0 */}
                 </a>
                 <a class="hashtag-hover--green ms-2" href=" ">
                   <span class="hashtag--green">#</span>
-                  {tags}
+                  {posts.tags}
                   {/*{tags[1 */}
                 </a>
                 <a class="hashtag-hover--yellow ms-2" href=" ">
                   <span class="hashtag--yellow">#</span>
-                  {tags}
+                  {posts.tags}
                   {/*{tags[2 */}
                 </a>
                 <p>{description}</p>
