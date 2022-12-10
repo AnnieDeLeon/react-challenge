@@ -16,7 +16,7 @@ export const RegisterPage = (props) => {
     const createdAt = new Date().toDateString();
     const email = formData.get("email");
     const password = formData.get("password");
-    fetch("http://localhost:8080/writers", {
+    fetch("http://localhost:8080", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
